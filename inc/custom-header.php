@@ -4,7 +4,6 @@
  *
  * You can add an optional custom header image to header.php like so ...
  *
-	<?php the_header_image_tag(); ?>
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
@@ -16,31 +15,31 @@
  *
  * @uses boom_festive_header_style()
  */
-function boom_festive_custom_header_setup() {
+function ibsf_custom_header_setup() {
 	add_theme_support(
 		'custom-header',
 		apply_filters(
-			'boom_festive_custom_header_args',
+			'ibsf_custom_header_args',
 			array(
 				'default-image'      => '',
 				'default-text-color' => '000000',
 				'width'              => 1000,
 				'height'             => 250,
 				'flex-height'        => true,
-				'wp-head-callback'   => 'boom_festive_header_style',
+				'wp-head-callback'   => 'ibsf_header_style',
 			)
 		)
 	);
 }
-add_action( 'after_setup_theme', 'boom_festive_custom_header_setup' );
+add_action( 'after_setup_theme', 'ibsf_custom_header_setup' );
 
-if ( ! function_exists( 'boom_festive_header_style' ) ) :
+if ( ! function_exists( 'ibsf_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
 	 * @see boom_festive_custom_header_setup().
 	 */
-	function boom_festive_header_style() {
+	function ibsf_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*

@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function boom_festive_body_classes( $classes ) {
+function ibsf_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -24,14 +24,14 @@ function boom_festive_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'boom_festive_body_classes' );
+add_filter( 'body_class', 'ibsf_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function boom_festive_pingback_header() {
+function ibsf_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}
 }
-add_action( 'wp_head', 'boom_festive_pingback_header' );
+add_action( 'wp_head', 'ibsf_pingback_header' );

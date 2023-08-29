@@ -1,18 +1,17 @@
 <?php
 /**
- * Template part for displaying results in search pages
+ * The template for displaying archive pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Boom_Festive
  */
-
 ?>
-
-<article <?php post_class(); ?>>
-<h2 classa="title">
-    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-</h2>
+<article>
+<div class="the-post">   
+    <h2 class="title">
+        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+    </h2>
 <div class="post-thumbnail">
     <?php 
     if( has_post_thumbnail() ):
@@ -20,20 +19,12 @@
     endif;
     ?>
 </div>
-<div class="meta">    
 <p>
     <?php esc_html_e( 'Published by', 'boom-festive' ); ?> <?php the_author_posts_link(); ?>
     <?php esc_html_e('on', 'boom-festive'  ); ?> <a href="<?php the_permalink(); ?>"><?php echo esc_html( get_the_date() ); ?></a>
     <br />
-    <?php if( has_category() ): ?>
-        <?php esc_html_e( 'Categories', 'boom-festive' ); ?>: <span><?php the_category( ' ' ); ?></span>
-    <?php endif; ?>
-    <br />
-    <?php if( has_tag() ): ?>
-        <?php esc_html_e( 'Tags', 'boom-festive' ); ?>: <span><?php the_tags( '', ', ' ); ?></span>
-    <?php endif; ?>
-    </p>
-</div>
+    <?php esc_html_e( 'Categories', 'boom-festive' ); ?>: <span><?php the_category( ' ' ); ?></span>
+</p>
 <?php if( has_excerpt() ): ?>
         <div class="content"><?php the_excerpt(); ?></div>
     <?php elseif( strpos( $post->post_content, '<!--more-->' ) ): ?>
@@ -41,4 +32,5 @@
     <?php else: ?>
          <div class="content"><?php the_excerpt(); ?></div>
     <?php endif; ?>
+    </div>
 </article>

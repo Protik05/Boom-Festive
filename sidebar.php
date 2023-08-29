@@ -7,11 +7,11 @@
  * @package Boom_Festive
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
-?>
+ ?>
 
-<aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-</aside><!-- #secondary -->
+<?php if( is_active_sidebar( 'boom-festive-sidebar-1' ) ): ?>
+	<aside class="sidebar-1 col-lg-3 col-md-4 col-12 h-100">
+		<?php dynamic_sidebar( 'boom-festive-sidebar-1' ); ?>
+	</aside>
+<?php endif;
+
