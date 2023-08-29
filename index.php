@@ -50,7 +50,7 @@ get_header();
 		endif;
 		?>
 
-	</main><!-- #main -->
+	</main><!-- #main part -->
 
 <?php
 get_sidebar();
