@@ -253,8 +253,44 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 	}
 }
 
-
-
+// Add theme options panel.
+add_action("admin_menu","ibsf_theme_options");
+function ibsf_theme_options(){
+	//Generate Boom Festive Admin Page.
+	add_menu_page(
+		"Boom Festive Theme Options", //page title.
+		"Boom Festive", //Menu title.
+		"manage_options", //capability
+		"boom_festive",//menu slug
+		"ibsf_theme_create_page",//callback function
+		"dashicons-buddicons-friends"//icon			
+	);
+	//Generate Boom Festive Admin Sub Pages.
+	add_submenu_page(
+		"boom_festive", 
+		"Boom Festive Theme Options", 
+		"General", 
+		"manage_options",
+		"boom_festive",
+		"ibsf_theme_settings_page"
+				
+	);
+	add_submenu_page(
+		"boom_festive", 
+		"Boom Festive Header Options", 
+		"Header", 
+		"manage_options",
+		"boom_festive_header",
+		"ibsf_theme_settings_page"
+				
+	);
+}
+function ibsf_theme_create_page(){
+	echo "My Theme options Panel Here.";
+}
+function ibsf_theme_settings_page(){
+	echo "Inside the theme panel.";
+}
 
 
 
