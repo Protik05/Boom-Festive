@@ -13,7 +13,6 @@
       <a class="nav-link" id="v-pills-documentation-tab" data-toggle="pill" href="#v-pills-documentation" role="tab" aria-controls="v-pills-documentation" aria-selected="false">Documentation/Help</a>
     </div>
   </div>
- 
   <div class="col-9">
     <div class="tab-content" id="v-pills-tabContent">
       <div class="tab-pane fade show active" id="v-pills-general" role="tabpanel" aria-labelledby="v-pills-general-tab">
@@ -30,7 +29,7 @@
       <?php require_once(get_template_directory() . '/inc/theme-option/background_setting.php');?>
       </div>
       <div class="tab-pane fade" id="v-pills-single-post" role="tabpanel" aria-labelledby="v-pills-single-post-tab">Do it after the single post will created.</div>
-      <div class="tab-pane fade" id="v-pills-documentation" role="tabpanel" aria-labelledby="v-pills-documentation-tab">It will be uploaded very soon after few operations.</div>
+      <div class="tab-pane fade" id="v-pills-documentation" role="tabpanel" aria-labelledby="v-pills-documentation-tab">It will be uploaded very soon.</div>
 
     </div>
   </div>
