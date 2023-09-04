@@ -29,7 +29,7 @@
       <?php require_once(get_template_directory() . '/inc/theme-option/background_setting.php');?>
       </div>
       <div class="tab-pane fade" id="v-pills-single-post" role="tabpanel" aria-labelledby="v-pills-single-post-tab">Do it after the single post will created.</div>
-      <div class="tab-pane fade" id="v-pills-documentation" role="tabpanel" aria-labelledby="v-pills-documentation-tab">It will be uploaded very soon.</div>
+      <div class="tab-pane fade" id="v-pills-documentation" role="tabpanel" aria-labelledby="v-pills-documentation-tab">It will be uploaded very soon after few operations.</div>
 
     </div>
   </div>
