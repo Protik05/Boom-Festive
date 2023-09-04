@@ -18,10 +18,10 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class();?> style="background-color: <?php echo esc_attr(get_option('background_color', '#ffffff')); ?>">
 <?php wp_body_open(); ?>
 	<div id="page" class="site">
-		<header>
+		<header style="background-color: <?php echo esc_attr(get_option('header_bg_color', '#333')); ?>">
 			<section class="search">
 				<div class="container">
 					<div class="text-center d-md-flex align-items-center">
@@ -32,15 +32,15 @@
 			<section class="top-bar">
 				<div class="container">
 					<div class="row d-flex align-items-center">
-						<div class="brand col-md-3 col-12 col-lg-2 text-center text-md-left">
+						<div class="brand col-md-3 col-12 col-lg-2 text-center text-md-left">			
 						<a href="<?php echo esc_url( home_url('/') );?>">
 								<?php 
 	                            if( has_custom_logo() ):
 	                                the_custom_logo();
 	                            else:    
 	                            ?>
-	                                <p class="site-title"><?php bloginfo( 'title' );?></p>
-	                                <span ><?php bloginfo( 'description' );?></span>   
+	                                <p class="site-title"><?php echo esc_html(get_option('site_title', get_bloginfo('name'))); ?></p>
+	                                <span ><?php echo esc_html(get_option('site_tagline', get_bloginfo('description'))); ?></span>   
 	                            <?php endif;?>
 							</a>
 						</div>

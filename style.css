@@ -1065,8 +1065,6 @@ li.comment {
     display: none;
 }
 
-.bypostauthor {
-}
 
 .form-allowed-tags {
     background-color: #f5f5f5;
@@ -1831,3 +1829,7 @@ a img.aligncenter {
         width: 100%;
     }
 }
+
+/* a#v-pills-documentation-tab {
+    color: black;
+} */

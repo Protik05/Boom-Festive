@@ -33,13 +33,20 @@
 				</div>
 	 </section>
 
-	 <section class="copyright">
+	 <section class="copyright" style="background-color: <?php echo esc_attr(get_option('footer_bg_section', '#333')); ?>">
 		 <div class="container">
 			 <div class="row">
 				 <div class="copyright-text col-12 col-md-6">
-						<p><?php echo esc_html(get_theme_mod('set_copyright',__('Copyright X-All Rights Reserved','boom-festive')));?></p>
+				 <p>
+					<?php
+					$copyright_sec = get_option("copyright_sec"); // Default value if option is not set
+					$copyright = get_theme_mod('set_copyright', $copyright_sec);
+					
+					echo esc_html($copyright);
+					?>
+				</p>
 				 </div>
-				 <nav class="footer-menu col-12 col-md-6 text-left text-md-right">
+				 <nav class="footer-menu col-12 col-md-6 text-left text-md-right" >
 					 <?php 
 						 wp_nav_menu( 
 							 array(
