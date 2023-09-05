@@ -20,7 +20,7 @@ function ibsf_theme_options(){
 		"manage_options", //capability
 		"boom_festive",//menu slug
 		"ibsf_theme_header_settings",//callback function
-		"dashicons-buddicons-friends"//icon			
+		"dashicons-bell"//icon			
 	);
 
 }
