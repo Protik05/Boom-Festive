@@ -16,7 +16,7 @@
 <div class="post-thumbnail">
     <?php 
     if( has_post_thumbnail() ):
-        the_post_thumbnail( 'ibs-blog', array( 'class' => 'img-fluid' ) );
+        the_post_thumbnail( 'ibsf-blog', array( 'class' => 'img-fluid' ) );
     endif;
     ?>
 </div>

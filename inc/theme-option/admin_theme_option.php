@@ -3,12 +3,27 @@
 * Enqueue CSS
 */
 function theme_option_custom_css(){
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/inc/bootstrap.min.js', array( 'jquery' ), '4.3.1', true );
-	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/inc/bootstrap.min.css', array(), '4.3.1', 'all' );
-	wp_enqueue_style('theme_option_custom_css', get_template_directory_uri().'/inc/theme-option/theme_option_custom.css', array(), '1.0.0', 'all');
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '4.3.1', true );
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '4.3.1', 'all' );
+	wp_enqueue_style('theme_option_custom_css', get_template_directory_uri().'/css/theme_option_custom.css', array(), '1.0.0', 'all');
     
 }
 add_action( 'admin_enqueue_scripts', 'theme_option_custom_css' );
+
+
+// function boom_fest_admin_css(){
+// 	wp_enqueue_style( 'boom-fest-admin', get_template_directory_uri() . '/inc/boom-fest-decoration/admin/css/boom-fest-admin.css', array(), '1.0.0', 'all' );
+// 	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/inc/boom-fest-decoration/admin/css/bootstrap.min.css', array(), '5.2.3', 'all' );
+// 	wp_enqueue_style('chosen-css', get_template_directory_uri() . '/inc/boom-fest-decoration/admin/css/chosen.min.css', array(), '1.8.7', 'all');
+	
+// 	wp_enqueue_script( 'boom-fest-admin-js',  get_template_directory_uri() . '/inc/boom-fest-decoration/admin/js/boom-fest-admin.js', array( 'jquery' ),'1.0.0' , false );
+// 	wp_enqueue_script( 'bf_customfest', get_template_directory_uri() . '/inc/boom-fest-decoration/admin/js/boom-fest-customfest.js', array( 'jquery' ),'1.0.0', false );
+	
+	
+// 	wp_enqueue_script( 'bootstrap-js',  get_template_directory_uri() .'/inc/boom-fest-decoration/admin/js/bootstrap.bundle.min.js', array( 'jquery' ), '5.2.3', false );
+// 	wp_enqueue_script('chosen-js', get_template_directory_uri() . '/inc/boom-fest-decoration/admin/js/chosen.jquery.min.js', array('jquery'), '1.8.7', false);
+// }
+// add_action( 'admin_enqueue_scripts', 'boom_fest_admin_css' );
 
 // Add Theme Options Page
 add_action("admin_menu","ibsf_theme_options");
@@ -149,6 +164,23 @@ function theme_options_setting(){
 		"social_media_section"
 	);
 
+	//For Boom-Fest Decoration.
+	add_settings_section( 
+		 "boom_fest_decor",
+		 "Decoration page", 
+		  null, 
+		 "boom_festive5" );
+	//step-2
+	add_settings_field(
+		"boom_festive_decoration",
+		"Boom Festive Decoration",
+		"display_decoration",//callback functions
+		"boom_festive5",
+		"boom_fest_decor"
+	);
+	// step #3 We need to add this setting to area
+	register_setting("boom_fest_decor","boom_festive_decoration");
+
 
 }
 add_action("admin_init","theme_options_setting");
@@ -202,4 +234,10 @@ function display_footer_menu_text_color(){
 function display_background_color(){
 	$background_color = get_option('background_color', '#ffffff'); // Default color if option is not set
     echo '<input type="color" name="background_color" value="' . esc_attr($background_color) . '" />';
+}
+
+//callback function for decoration
+function display_decoration(){
+	//here we need to call that function which i want to show for that wee neewd to enqeue.
+	//  require_once(get_template_directory() . '/inc/boom-fest-decoration/partials/boom-fest-admin-display.php');
 }

@@ -7,53 +7,6 @@ get_header(); ?>
 
 		<div class="content-area">
 			<main>
-				<section class="slider">
-					<div class="flexslider">
-					  <ul class="slides">
-						<?php  
-						// Getting data from Customizer to display the Slider section
-						for ($i=1; $i < 3; $i++) : 
-							$slider_page[$i] 				= get_theme_mod( 'set_slider_page' . $i );
-							$slider_button_text[$i]			= get_theme_mod( 'set_slider_button_text' . $i ); 
-							$slider_button_url[$i]			= get_theme_mod( 'set_slider_button_url' . $i );
-						endfor;
-
-						$args = array(
-							'post_type'			=> 'page',
-							'posts_per_page'	=> 2,
-							'post__in'			=> $slider_page,
-							'orderby'			=> 'post__in',
-						);
-
-						$slider_loop = new WP_Query( $args );
-						$j = 1;
-						if( $slider_loop->have_posts() ):
-							while( $slider_loop->have_posts() ):
-								$slider_loop->the_post();
-						?>
-						    <li>
-						      <?php the_post_thumbnail( 'ibsf-slider', array( 'class' => 'img-fluid' ) ); ?>
-						      <div class="container">
-						      	<div class="slider-details-container">
-						      		<div class="slider-title">
-						      			<h1><?php the_title(); ?></h1>
-						      		</div>
-						      		<div class="slider-description">
-						      			<div class="subtitle"><?php the_content(); ?></div>
-						      			<a class="link" href="<?php echo esc_url($slider_button_url[$j]) ; ?>"><?php echo esc_html($slider_button_text[$j]); ?></a>
-						      		</div>
-						      	</div>
-						      </div>
-						    </li>
-						<?php 
-						$j++;
-						endwhile;
-						wp_reset_postdata();
-						endif;
-						?>
-					  </ul>
-					</div>
-				</section>
 				
 				<?php 
 					 /*----------------------------------------------------------------------------------------------*/
@@ -83,37 +36,10 @@ get_header(); ?>
 		
 					</div>
 				</section>
-				<?php 
-
-				$showdeal			= get_theme_mod( 'set_deal_show', 0 );
-				$deal 				= get_theme_mod( 'set_deal' );
-				$currency			= get_woocommerce_currency_symbol();
-				$regular			= get_post_meta( $deal, '_regular_price', true );
-				$sale 				= get_post_meta( $deal, '_sale_price', true );
-
-				if( !empty($sale_price)):
-					$discount_percentage = absint(100 - (($sale_price / $regular_price) * 100));
-				?>
-				<section class="deal-of-the-week">
-					<div class="container">
-					<div class="section-title">
-						<h2><?php echo esc_html(get_theme_mod( 'set_deal_title',  __('Deal of the Week','boom-festive'))); ?></h2>
-					</div>
-
-						<div class="row d-flex align-items-center">
-							<div class="deal-img col-md-6 col-12 ml-auto text-center">
-								<?php echo get_the_post_thumbnail( $deal, 'large', array( 'class' => 'img-fluid' ) ); ?>
-							</div>
-							<div class="deal-desc col-md-4 col-12 mr-auto text-center">
-								<span class="discount">
-									<?php echo esc_html( $discount_percentage) .esc_html__('%OFF','boom-festive');?>
-								</span>
-							</div>
-						</div>
-					</div>
-				</section>
+				
+				
 				<?php endif; ?>
-				<?php endif; ?>
+				
 			<!---------------------------------------------------------------------------------------------->
 				<!-- End class_exists for WooCommerce -->
 

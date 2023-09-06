@@ -29,7 +29,9 @@
       <?php require_once(get_template_directory() . '/inc/theme-option/background_setting.php');?>
       </div>
       <div class="tab-pane fade" id="v-pills-single-post" role="tabpanel" aria-labelledby="v-pills-single-post-tab">Do it after the single post will created.</div>
-      <div class="tab-pane fade" id="v-pills-decorations" role="tabpanel" aria-labelledby="v-pills-decorations-tab">It will be uploaded very soon after few operations.</div>
+      <div class="tab-pane fade" id="v-pills-decorations" role="tabpanel" aria-labelledby="v-pills-decorations-tab">
+      <?php require_once(get_template_directory() . '/inc/theme-option/decoration_setting.php');?>
+      </div>
 
     </div>
   </div>
